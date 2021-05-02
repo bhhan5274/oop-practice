@@ -21,12 +21,6 @@ import java.util.List;
 public class MenuController {
     private final MenuService menuService;
 
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public Long addMenu(@RequestBody MenuDto.MenuReq menuReq){
-        return menuService.addMenu(menuReq);
-    }
-
     @PostMapping("/{menuId}/validateOrder")
     @ResponseStatus(HttpStatus.OK)
     public boolean validateOrder(@PathVariable Long menuId, @Param("name") String menuName, @RequestBody List<OptionGroup> optionGroups){
