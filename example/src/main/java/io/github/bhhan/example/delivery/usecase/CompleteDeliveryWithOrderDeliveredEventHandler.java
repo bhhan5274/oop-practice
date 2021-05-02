@@ -9,6 +9,7 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.event.TransactionPhase;
 import org.springframework.transaction.event.TransactionalEventListener;
 
 import java.time.LocalDateTime;
@@ -26,7 +27,7 @@ public class CompleteDeliveryWithOrderDeliveredEventHandler {
 
     @Async
     @Transactional(propagation = Propagation.REQUIRES_NEW)
-    @TransactionalEventListener
+    @TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT, classes = OrderDeliveredEvent.class)
     public void handle(OrderDeliveredEvent event){
         final Delivery delivery = deliveryRepository.findById(event.getOrderId())
                 .orElseThrow(IllegalArgumentException::new);
