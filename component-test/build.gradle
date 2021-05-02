@@ -1,0 +1,9 @@
+dependencies {
+    testCompile 'info.cukes:cucumber-java:1.2.5'
+    testCompile 'info.cukes:cucumber-junit:1.2.5'
+    testCompile 'info.cukes:cucumber-spring:1.2.5'
+
+    testImplementation "org.springframework.boot:spring-boot-starter-test:$springBootVersion"
+    testImplementation 'io.rest-assured:rest-assured:4.3.3'
+    testImplementation 'com.fasterxml.jackson.core:jackson-databind:2.12.3'
+}
