@@ -10,6 +10,7 @@ docker-compose up
 
 ## Using the Application
 Use the Swagger UI to invoke the service(CreateOrder/payedOrder/deliveredOrder)
+init data -> data.sql
 - http://localhost:9000/swagger-ui.html
 
 ![image](./image.png)
